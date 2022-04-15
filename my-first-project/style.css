@@ -1,0 +1,20 @@
+<style>
+    p{
+        width:50%;
+        background-color: pink;
+        padding: 20px;
+    }
+
+    #nyu-link {
+        background-color: lightcyan;
+    }
+
+    .weekdays {
+        display:inline;
+        width:400px;
+        height: 400px;
+        background-color: dodgerblue;
+        border-radius: 25px;
+        padding:80px;
+    }
+</style>

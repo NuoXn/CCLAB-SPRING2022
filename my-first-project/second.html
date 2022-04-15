@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gottfried's Website</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+        }
+        #container {
+            width: 720px;
+            margin: 0 auto;
+            background-color: lightblue;
+            overflow: hidden;
+        }
+        h1 {
+            padding-left: 10px;
+            background-color: lightcoral;
+        }
+        p {
+            padding: 15px 40px;
+            border: 1px dotted black;
+            border-radius: 5px;
+            margin: 40px 0;
+        }
+        .column {
+            width: 33%;
+            float: left;
+        }
+        #intro {
+            position: relative;
+            left: 0px;
+            top: 0px;
+        }
+        #nav {
+            position: fixed;
+            right: 50px;
+            top: 0px;
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            border-radius: 100px;
+            -webkit-box-shadow: 5px 5px 3px -2px #000000; 
+            box-shadow: 5px 5px 3px -2px #000000;
+        }
+    </style>
+</head>
+<body>
+    <div id="nav">
+    </div>
+
+    <div id="container">
+        <h1>Gottfried's page</h1>
+
+        <p id="intro">Welcome to my website. I want to share my p5 sketches with you below:</p>
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora qui ratione, autem cumque perspiciatis ad doloremque optio, fugit illo quo ex facilis corrupti doloribus quae vel molestiae minus, laborum neque! Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat blanditiis a autem, incidunt illo voluptatibus laboriosam quos ex animi id modi suscipit quisquam quas accusantium facilis inventore. Ab, molestias provident. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus accusantium veritatis autem voluptatum, dolorum cum reiciendis accusamus, assumenda praesentium, omnis fugiat est nihil. Hic ratione alias, quae reiciendis dolore voluptates? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores, molestias! Atque tempora minus quos vel possimus perferendis molestiae quia. Repellendus doloribus rem incidunt sint molestias asperiores velit voluptatibus expedita porro.</p>
+
+        <div class="column">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat accusantium nesciunt laborum nostrum minus nemo itaque. Nihil quod sequi quo, dolorem laudantium voluptates omnis nam officiis praesentium ipsam dignissimos nostrum.
+        </div>
+        <div class="column">
+            <img src="images/goofy.png">
+        </div>
+        <div class="column">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat accusantium nesciunt laborum nostrum minus nemo itaque. Nihil quod sequi quo, dolorem laudantium voluptates omnis nam officiis praesentium ipsam dignissimos nostrum.
+        </div>
+    </div>
+
+</body>
+</html>
