@@ -1,7 +1,11 @@
-html, body {
-  margin: 0;
-  padding: 0;
+html{
+  background-color: black;
 }
 canvas {
   display: block;
+}
+#myContainer {
+  position: absolute;
+  left: 100px;
+  top: 100px;
 }

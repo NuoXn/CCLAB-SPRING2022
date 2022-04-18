@@ -8,7 +8,8 @@ let r = random(0,255);
 let g = random(0,255);
 let b = random(0,255);
 
-  createCanvas(400, 400);
+  let canvas=createCanvas(400, 400);
+  canvas.parent("my-container")
   background(r, g, b, 105);
 
   
