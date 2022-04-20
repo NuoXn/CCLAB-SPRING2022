@@ -59,13 +59,13 @@ font-size: 55px;
   padding: 20auto;
 }
 #ewd1{
-  float:right
+  float:right;
 }
 #ewd2{
-  float:left
+  float:left;
 }
 #ewd3{
-  float:inline-end
+  float:inline-end;
 }
 #welcometo{
   font-family: 'Times New Roman', Times, serif;
