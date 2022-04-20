@@ -1,6 +1,7 @@
 html{
   background-color: black;
   color: #ece9e9;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .instructions {
@@ -17,39 +18,68 @@ flex-direction: row-reverse;
 font-size: 10px;
 text-align: center;}
 
+
 #inspiration {
-  width: 720px;
+  width: 800px;
   margin: 0 auto;
-  background-color: slategray;
+  background-color: rgba(255, 255, 255, 0.753);
   color: black;
   overflow: hidden;
   border: radius 25px;
+  padding: 20 auto;
 }
 
 #title{
-  color: #FFFFFF;
-background: #ece9e9;
+text-align: center;
+margin-top: 30px;
+margin-bottom: 50px;
+color: #FFFFFF;
 text-shadow: 3px 5px 2px #474747;
 color: #FFFFFF;
-background: #ece9e9;
+font-family:Georgia, 'Times New Roman', Times, serif;
+font-size: 55px;
 }
 
+#name{
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  font: size 15px;
+  font-style: italic;
+  text-align: center;
+  color: rgb(168, 168, 168);
+  margin-top: 0px;
+}
 .ewd{
+  color:#0c0c0c;
   background-color: #ece9e9;
-}
-
-.buttonst{
   position: absolute;
-left: 100px;
-top: 1540px;
+  width: 610px;
+  height: 725px;
+  top: 1005px;
+  left:670px;
+  padding: 20auto;
+}
+#ewd1{
+  float:right
+}
+#ewd2{
+  float:left
+}
+#ewd3{
+  float:inline-end
+}
+#welcometo{
+  font-family: 'Times New Roman', Times, serif;
+  text-align: center;
+  padding: 20auto;
+  margin:20auto;
 }
 
 canvas {
   display: block;
-  margin-top: 100 auto;
+  margin-top: 200 auto;
+  margin-left: 100 auto;
+  padding: 100px;
+  border: 3px solid #0c0c0c;
+  background-color: #ece9e9;
 }
-#sketch-containter {
-  position: absolute;
-  left: 650px;
-  top: 840px;
-}
+
