@@ -8,8 +8,9 @@ let mic;
 let cities = [];
 let blu;
 function setup() {
-  createCanvas(800, 580);
-  
+  let canvas=createCanvas(800, 580);
+  canvas.parent("my-container");
+
   //https://editor.p5js.org/MOQN/sketches/DtHkaJdLG
    mic = new p5.AudioIn();
   mic.start();

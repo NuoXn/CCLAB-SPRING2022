@@ -1,7 +1,46 @@
 html, body {
   margin: 0;
   padding: 0;
+  background-color: black;
+  color: #ece9e9;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 canvas {
   display: block;
 }
+#my-container {
+  position: absolute;
+  left: 200px;
+  top: 500px;
+  border-style: double;
+  border-color: azure;
+  border-radius: 25px;
+}
+#title{
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 50px;
+  color: #FFFFFF;
+  text-shadow: 3px 5px 2px #474747;
+  color: #FFFFFF;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  font-size: 55px;
+  }
+  
+  #name{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font: size 15px;
+    font-style: italic;
+    text-align: center;
+    color: rgb(168, 168, 168);
+    margin-top: 0px;
+  }
+  #inspiration {
+    width: 800px;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.753);
+    color: black;
+    overflow: hidden;
+    border: radius 25px;
+    padding: 20 auto;
+  }
