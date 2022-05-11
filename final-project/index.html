@@ -11,28 +11,28 @@
     <style></style>
   </head>
   <body>
-    <button class="refresh-button">
-      refresh
+    <button class="refresh-button" onClick="window.location.reload();">
+      refresh 
     </button>
     <div id="my-container"></div>
-   
+    <div class="topright"><img src="asset/Screaming4.png"width="445.5" height="315"></div>
+    <div class="topleft"><img src="asset/Screaming5.png "width="105.5" height="95"></div>
+    <div style="position:absolute;left:100px;right:70px;bottom: -700px" ><img src="asset/Screaming(4).png "width="640" height="480"></div>
     <canvas id="defaultCanvas0" class="p5Canvas" width="2560" height="1298" style="width: 1280px; height: 649px; cursor: none;"></canvas>
     <script src="sketch.js"></script>
     <h1 id="title"> Screaming For Getting Your Package</h1>
   <h2 id="name"> Created by Nuo</h2>
-  <h3 id="welcometo">Welcome to <b>World During Lockdown in Shanghai</b>!  </h3>   
-  <p id="inspiration"> Feel free to shout out your stress when waiting the movement of the package. <b>Sorry, the website is still under the construction. The parcel hasn't been able to move yet. But just shout out!!!</b> </p>
- <div> <p>Instructions:
-      1.Choose the Origin of the Package with Your Mouse carefully
-      Tips: The circle with deeper colors and bigger sizes symbolizes a city with higher COVID-19 cases. If you want to get your package quicker, you need to choose the origin carefully.
-      2.Use Your Voice to play with your package on the way.  
-      Tips: It's pretty dull when you have no choice but to wait. Just play with your package during the waiting.
-      3.When the package is stuck due to the city with serious COVID cases, please scream!
-      Tips: Please keep an eye on the box. If the package is stuck, the box will send the notice. Only your screaming can make it move again! 
-      4.Finally, broadcast the video to celebrate the arrival of your package. Feel free to play it again!
-      Tips: Hope you can get fun!
-      </p></div>
-      <video width="320" height="240" controls>
+  <h3 style="position:absolute;left:100px;">Welcome to <b>World During Lockdown in Shanghai</b>!  </h3>   
+   
+ 
+      <div id="logbook"></div>
+      <video width="640" height="480" controls style="position:absolute;
+      right:100px;bottom: -1000px; margin-bottom: 150px; padding:30px; border-style: solid;"
+      >
         <source src="Congratulation.mp4" type="video/mp4">
+      </video>
+      <video width="640" height="240" controls style="position:absolute;left:100px;right:70px;bottom: -1000px"
+      >
+        <source src="User Testing!.mp4" type="video/mp4">
       </video>
     </body></html>

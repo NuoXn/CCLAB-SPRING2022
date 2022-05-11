@@ -1,3 +1,4 @@
+let vid;
 let cx, cy;
 let secondsRadius;
 let minutesRadius;
@@ -17,11 +18,14 @@ let cityblue;
 let starting = false;
 let index;
 let parcel1;
-function setup() {
-  let canvas = createCanvas(800,580);
-  canvas.parent("my-container");
-  
 
+let logElem;
+let logText = '';
+
+function setup() {
+  let canvas = createCanvas(1400, 620);
+  canvas.parent("my-container");;
+ logElem = select('#logbook');
   //https://editor.p5js.org/gohai/sketches/th7T7cyXC
   mic = new p5.AudioIn();
   mic.start();
@@ -32,7 +36,7 @@ function setup() {
   hoursRadius = radius * 0.5 * 0.25;
   clockDiameter = radius * 1.7 * 0.25;
 
-  cx = 700;
+  cx = 800;
   cy = 470;
 
   cities.push(
@@ -160,12 +164,10 @@ function draw() {
   background(0);
   push();
   fill(255, 255, 255);
-  if (mouseIsPressed) {
-    console.log(mouseX, mouseY);
-  }
+ 
 
   pop();
-  image(img2, 600, 190, 207.6, 168.8);
+  image(img2, 920, 30,168.8*2.5,207.6*2.5);
   image(img, 23, 6, 760, 570);
 
   level = mic.getLevel();
@@ -230,15 +232,12 @@ function draw() {
   scale(map(sin(frameCount) * 0.04, -1, 1, 1, 1.5));
   text("Shanghai", 0, 0);
   pop();
-  if (starting) {
-    //print(cities[index].x, cities[index].y);
-  }
+
   if (parcel1 != null) {
     parcel1.drawparcel();
 
     parcel1.moveparcel();
   }
- 
 }
 
 class City {
@@ -279,26 +278,25 @@ class City {
     }
   }
   drawCities(index0) {
-    let noisePos = frameCount * 0.00001 * (index0 + 4);
+      let noisePos = frameCount * 0.0001 * (index0 + 4);
     noStroke();
     cityred = map(noise(noisePos), 0, 1, 0, 255);
-    citygreen = map(noise(noisePos), 0, 1, 0, 255);
-    cityblue = map(noise(noisePos), 0, 1, 150, 255);
-    let sinR = sin(cityred);
-    let sinG = sin(citygreen);
-    let sinB = sin(cityblue);
-    let r = map(sinR, -1, 1, 255, 0);
-    let g = map(sinB, -1, 1, 255, 0);
-    if (-1 < sinG < 0) {
-      g = map(sinG, -1, 0, 0, 255);
-    } else if (0 < sinG < 1) {
-      g = map(sinG, 0, 1, 0, 255);
-    }
-    let b = map(sinB, -1, 1, 0, 255);
-    this.citydia = map(r, 255, 0, 25, 5);
-    fill(r, g, 255, map(this.citydia, 5, 15, 190, 225));
+  //  citygreen = map(noise(noisePos), 0, 1, 0, 255);
+  //  cityblue = map(noise(noisePos), 0, 1, 150, 255);
+  //  let sinR = sin(cityred);
+  //  let sinG = sin(citygreen);
+  //  let sinB = sin(cityblue);
+  //  let r = map(sinR, -1, 1, 255, 0);
+  //  let g = map(sinB, -1, 1, 255, 0);
+    //if (-1 < sinG < 0) {
+    //  g = map(sinG, -1, 0, 0, 255);
+   // } else if (0 < sinG < 1) {
+   //   g = map(sinG, 0, 1, 0, 255);
+  //  }
+   // let b = map(sinB, -1, 1, 0, 255);
+    this.citydia = map(cityred, 255, 0, 25, 5);
+    fill(cityred, 0, 255, map(this.citydia, 5, 25, 160, 225));
     ellipse(this.x, this.y, this.citydia, this.citydia);
-    this.citycase = map(this.citydia, 5, 25, 0, 2000);
   }
 
   checkCollision() {
@@ -308,6 +306,7 @@ class City {
       starting = true;
       parcel1 = new Parcel(this.x, this.y, this.name);
       cities[index].searchconnection();
+      
     }
   }
 }
@@ -340,17 +339,15 @@ function destination(x, y) {
 function preload() {
   img = loadImage("asset/bigmap1.png");
   img1 = loadImage("asset/parcel.png");
-  img2 = loadImage("asset/Tracking your parcel.png");
+  img2 = loadImage("asset/Tracking Your Package.png");
 }
 
 class Parcel {
   constructor(x, y, startCity) {
     this.x = x; // where the parcel is right now
     this.y = y;
-
     this.route = planShortestRoute(startCity, "Shanghai"); // our route
     //console.log(this.route);
-
     this.curCityIndex = 0; // which index the current city has
     this.curCity = findCity(this.route[this.curCityIndex]);
     this.nextCity = findCity(this.route[this.curCityIndex + 1]);
@@ -365,55 +362,86 @@ class Parcel {
     translate(this.x, this.y);
     scale(map(avg_fast, 0.0, 1.0, 0.8, 3));
     image(img1, -15, -15, 40, 30);
+   
     pop();
   }
   moveparcel() {
-   level = mic.getLevel();
+    level = mic.getLevel();
     this.x = lerp(this.curCity.x, this.nextCity.x, this.process);
     this.y = lerp(this.curCity.y, this.nextCity.y, this.process);
-    //startending(this.nextCity.x, this.nextCity.y);
+    
     for (let i = 0; i < this.route.length - 2; i++) {
       push();
       fill(83, 243, 219, 255);
       line(this.curCity.x, this.curCity.y, this.x, this.y);
       pop();
     }
-    
+
     if (1 <= this.process) {
       
-      let diacity = this.nextCity.citydia;
-     
-      if (diacity > 8) {
-        noStroke();
-        ellipse(width * 0.5, height * 0.5, map(level, 0.0, 1.0, 0, 1000));
-        this.blocked = false;
-        if (level > 0.5) {
-          if (this.curCityIndex < this.route.length - 2) {
-            this.curCityIndex++;
-            this.curCity = findCity(this.route[this.curCityIndex]);
-            this.nextCity = findCity(this.route[this.curCityIndex + 1]);
-            this.dist = dist(this.x, this.y, this.nextCity.x, this.nextCity.y);
-            this.process = 0;
-            this.blocked = true;
-          }
-        }
-      } 
-      
-      else if (diacity <= 8 &&"this.blocked==true" ) {
-        if (this.curCityIndex < this.route.length - 2) {
-          this.curCityIndex++;
-          this.curCity = findCity(this.route[this.curCityIndex]);
-          this.nextCity = findCity(this.route[this.curCityIndex + 1]);
-          this.dist = dist(this.x, this.y, this.nextCity.x, this.nextCity.y);
-          
-        }
+      if (this.curCityIndex < this.route.length - 2) {
+        // not yet at destination, go to next
+        this.curCityIndex++;
+        this.curCity = findCity(this.route[this.curCityIndex]);
+        this.nextCity = findCity(this.route[this.curCityIndex + 1]);
+       // console.log(this.curCityIndex, this.route);
+        this.dist = dist(this.x, this.y, this.nextCity.x, this.nextCity.y);
         this.process = 0;
+        this.blocked = true;
+      } else {
+        // reached Shanghai
+       // console.log('Shanghai');
+         logText = logText + 'Arrived Shanghai' ;
       }
-    } 
-    
-    
-    else {
-      this.process = this.process + (1 / this.dist) * 0.35;
+  
+    } else {
+      
+      let stuck;
+/*      if (this.nextCity.citydia < 15 || level > 0.55) {
+        this.process = this.process + (1 / this.dist) * 0.35;
+        if (this.wasStuck) {
+          //console.log('Got moving again');
+          logText = logText + 'Transportation resumed' + '<br>'
+        }
+        stuck = false;
+      } else {
+        stuck = true;
+        if (this.wasStuck == false) {
+          console.log('Outbreak in ' + this.nextCity.name);
+           logText = logText + 'Oh no, there is a Covid outbreak in ' + this.nextCity.name + '<br>';
+            ellipse(width / 2, height / 2, 5, 5);
+  logElem.html(logText);
+        }
+      }*/
+      stuck = null;
+      //console.log(level);
+      if (this.wasStuck) {
+       // console.log("stuck, test move");
+        if (level > 0.4) {
+          stuck = false;
+          logText = logText + '<br>Transportation resumed</br>';
+          logElem.html(logText);
+        } else stuck = true;
+      } else {
+        //console.log("moving, test stuck")
+        if (this.nextCity.citydia < 15 || level > 0.4) stuck = false;
+        else {
+          stuck = true;
+          //console.log('Outbreak in ' + this.nextCity.name);
+          logText = logText + '<br>Oh no, there is a Covid outbreak in ' + this.nextCity.name + '</br>';
+          push();
+          noStroke();
+          fill(255,0,0,230);
+          circle(300, 200, map(level,0,1,0,2000));
+          pop();
+          logElem.html(logText);
+        }
+      }
+      if (!stuck) this.process = this.process + (1 / this.dist) * 0.35;
+
+      this.wasStuck = stuck;
+      
+      
       next(this.nextCity.x, this.nextCity.y);
 
       push();
@@ -421,10 +449,23 @@ class Parcel {
       noStroke();
       textStyle(BOLD);
       textSize(10);
-      text(this.curCity.name, 695, 298);
-      text(this.nextCity.name, 675, 310);
+      text(this.curCity.name, this.curCity.x, this.curCity.y);
+      text(this.nextCity.name, this.nextCity.x,this.nextCity.y);
+      pop;
+      push();
+      fill(255, 255, 255);
+      noStroke();
+      fill(0);
+      textStyle(BOLD);
+      textSize(10);
+      text(this.route,995,255);
+      textSize(20);
+      text(this.curCity.name, 1046,320);
+      text(this.nextCity.name, 1190,350);
       pop;
     }
+
+ 
   }
 }
 
@@ -479,3 +520,5 @@ function planShortestRoute(from, to) {
 
   return shortest_route;
 }
+
+

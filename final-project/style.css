@@ -1,6 +1,6 @@
 html, body {
-  margin: 0;
-  padding: 0;
+  margin: 30;
+  padding: 10;
   background-color: black;
   color: #ece9e9;
   font-family: Georgia, 'Times New Roman', Times, serif;
@@ -11,18 +11,15 @@ canvas {
 #my-container {
   position: absolute;
   left: 200px;
-  top: 500px;
-  border-style: double;
-  border-color: azure;
+  top: 275px;
   border-radius: 25px;
 }
 #title{
   text-align: center;
-  margin-top: 30px;
+  margin-top: -610px;
   margin-bottom: 50px;
   color: #FFFFFF;
   text-shadow: 3px 5px 2px #474747;
-  color: #FFFFFF;
   font-family:Georgia, 'Times New Roman', Times, serif;
   font-size: 55px;
   }
@@ -45,7 +42,7 @@ canvas {
     padding: 20 auto;
   }
   .refresh-button {
-    background-color: rgb(200, 0, 0);
+    background-color:dodgerblue;
     color: white;
     border: none;
     border-radius: 2px;
@@ -58,4 +55,42 @@ canvas {
     padding-right: 16px;
     transition: opacity 0.15s;
     vertical-align: top;
+    position:absolute;
+    right:450px;
+    bottom:-150px;
   }
+  .welcometo {
+    position:absolute;
+    left:100px;
+  }
+  #logbook {
+    background-color:rgb(121, 215, 240);
+    color: black;
+    padding: 20px;
+    height: 10px;
+    width: 400px;
+    overflow-y: scroll;
+    font-family: monospace;
+    position: absolute;
+    border: 10px;
+  left: 265px;
+  bottom: -150px;
+  border-radius: 22px;
+  }
+  .bottomright{
+    left:100px;bottom: -900px; margin-bottom: 150px; padding:30px;
+  }
+  .topleft {
+    position: absolute;
+    top: 195px;
+    left: 585px;
+    font-size: 18px;
+  }
+  .topright {
+    position: absolute;
+    top: 65px;
+    right: -50px;
+    font-size: 18px;
+    z-index:0;
+  }
+ 
