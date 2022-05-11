@@ -7,9 +7,10 @@ canvas {
   display: block;
 }
 .GFG {
-  background-color: rgb(255, 5, 5);
+ 
   border: 2px solid white;
-  color:aqua;
+  color:white;
+  animation: backgroundChange 10s infinite;
   padding: 5px 10px;
   text-align: center;
  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
@@ -77,4 +78,33 @@ text-decoration: none solid rgb(68, 68, 68);
 font-style: italic;
 font-variant: normal;
 text-transform: none;
+}
+@keyframes backgroundChange {
+  0% {
+    background: rgb(255,0,0);
+  }
+  
+  16.6% {
+    background: rgb(255,0,255);
+  }
+  
+  33.3% {
+    background: rgb(0,0,255);
+  }
+  
+  50% {
+    background: rgb(0,255,255);
+  }
+  
+  66.6% {
+    background: rgb(0,255,0);
+  }
+  
+  83.3% {
+    background: rgb(255,255,0);
+  }
+  
+  100% {
+    background: rbg(255,0,0);
+  }
 }
